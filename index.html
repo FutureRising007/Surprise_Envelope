@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heart Stamped Envelope</title>
+    <link href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #44a6c6;
+        }
+
+        #card {
+            width: 0;
+            height: 0;
+            border-top: 150px solid #e8f4f8;
+            border-right: 250px solid #c1e1ec;
+            border-bottom: 150px solid #d4ebf2;
+            border-left: 250px solid #c1e1ec;
+            box-shadow: 10px 10px 5px #3793b2;
+            position: relative;
+            cursor: pointer;
+        }
+
+        .heart {
+            width: 32px;
+            height: 32px;
+            background-color: #ff1414;
+            transform: translate(-50%, -50%) rotate(45deg);
+            animation: heartbeat 1.4s infinite;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+        }
+
+        .heart:before,
+        .heart:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #ff1414;
+            border-radius: 50%;
+        }
+
+        .heart:before {
+            top: 0;
+            transform: translateY(-50%);
+        }
+
+        .heart:after {
+            left: 0;
+            transform: translateX(-50%);
+        }
+
+        @keyframes heartbeat {
+
+            0%,
+            100% {
+                transform: translate(-50%, -50%) rotate(45deg) scale(1);
+            }
+
+            30%,
+            70% {
+                transform: translate(-50%, -50%) rotate(45deg) scale(1.4);
+            }
+
+            50% {
+                transform: translate(-50%, -50%) rotate(45deg) scale(1.2);
+            }
+        }
+
+        .heart1,
+        .heart2,
+        .heart3,
+        .heart4 {
+            width: 32px;
+            height: 32px;
+            background-color: #ff1414;
+            transform: translate(-50%, -50%) rotate(45deg);
+            position: absolute;
+            left: 50%;
+        }
+
+        .heart1:before,
+        .heart1:after,
+        .heart2:before,
+        .heart2:after,
+        .heart3:before,
+        .heart3:after,
+        .heart4:before,
+        .heart4:after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-color: #ff1414;
+            border-radius: 50%;
+        }
+
+        .heart1:before {
+            top: 0;
+            transform: translateY(-50%);
+        }
+
+        .heart1:after {
+            left: 0;
+            transform: translateX(-50%);
+        }
+
+        .heart2:before {
+            top: 0;
+            transform: translateY(-50%);
+        }
+
+        .heart2:after {
+            left: 0;
+            transform: translateX(-50%);
+        }
+
+        .heart3:before {
+            top: 0;
+            transform: translateY(-50%);
+        }
+
+        .heart3:after {
+            left: 0;
+            transform: translateX(-50%);
+        }
+
+        .heart4:before {
+            top: 0;
+            transform: translateY(-50%);
+        }
+
+        .heart4:after {
+            left: 0;
+            transform: translateX(-50%);
+        }
+
+        .heart1 {
+            animation: heart1 2.5s ease-out 1s infinite;
+            top: 20%;
+        }
+
+        .heart2 {
+            animation: heart2 4s ease-out 1s infinite;
+            top: 10%;
+        }
+
+        .heart3 {
+            animation: heart3 2s ease-out 1s infinite;
+            top: 0%;
+        }
+
+        .heart4 {
+            animation: heart4 2.3s ease-out 1s infinite;
+            top: -10%;
+        }
+
+        @keyframes heart1 {
+            0% {
+                transform: translateY(-200%) translateX(0) scale(0.25) rotate(45deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-400%) translateX(0) scale(1) rotate(50deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heart2 {
+            0% {
+                transform: translateY(-300%) translateX(-100%) scale(0.25) rotate(-20deg);
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translateY(-500%) translateX(-10%) scale(1) rotate(45deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heart3 {
+            0% {
+                transform: translateY(-430%) translateX(-100%) scale(0.25) rotate(20deg);
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translateY(-650%) translateX(-10%) scale(1) rotate(60deg);
+                opacity: 0;
+            }
+        }
+
+        @keyframes heart4 {
+            0% {
+                transform: translateY(-450%) translateX(-100%) scale(0.25) rotate(45deg);
+                opacity: 0.2;
+            }
+
+            100% {
+                transform: translateY(-750%) translateX(-10%) scale(1) rotate(80deg);
+                opacity: 0;
+            }
+        }
+
+        .postcard {
+            width: 300px;
+            height: 200px;
+            background: linear-gradient(to bottom right, #ffdfba, #ffc3a0);
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotateX(90deg);
+            backface-visibility: hidden;
+            transition: transform 1s;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .postcard h3 {
+          margin: 0;
+          font-size: 24px;
+          color: #fd5c63;
+        }
+
+        .postcard p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: black;
+            font-weight: 600;
+        }
+
+        #card.open .postcard {
+            transform: translate(-50%, -50%) rotateX(0deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="card">
+        <div class="heart"></div>
+        <div class="heart1"></div>
+        <div class="heart2"></div>
+        <div class="heart3"></div>
+        <div class="heart4"></div>
+        <div class="postcard">
+            <h3>Surprise Darling!</h3>
+            <p>You're the most amazing person in my life. I wish you a great & cheerful day ahead Puchkuuu. LOVE YOUUU!</p>
+            <p>Yours, Kaifu 😉</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('card').addEventListener('click', function () {
+            this.classList.toggle('open');
+        });
+    </script>
+</body>
+
+</html>
